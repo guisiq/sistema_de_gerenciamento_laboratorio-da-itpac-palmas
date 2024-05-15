@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.itpacpalmas.api_sig_lab_itpac.services.PresencaService;
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.Aula;
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.VO.Presenca;
-import br.com.itpacpalmas.api_sig_lab_itpac.services.PresencaService;
 
 
 

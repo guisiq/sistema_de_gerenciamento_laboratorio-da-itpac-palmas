@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.Aula;
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.VO.EvidenciaInfo;
 import br.com.itpacpalmas.api_sig_lab_itpac.services.EvidenciaInfoService;
+import br.com.itpacpalmas.api_sig_lab_itpac.entities.VO.EvidenciaInfo;
 
 @RestController
 @RequestMapping("/api/evidencia/info")

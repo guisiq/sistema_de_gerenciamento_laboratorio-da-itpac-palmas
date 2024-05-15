@@ -1,5 +1,7 @@
 package br.com.itpacpalmas.api_sig_lab_itpac.exception;
 
+
+
 import java.util.Date;
 
 import org.springframework.http.HttpStatus;
@@ -10,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import br.com.itpacpalmas.api_sig_lab_itpac.exception.ExceptionResponse;
+import br.com.itpacpalmas.api_sig_lab_itpac.exception.InvalidJwtAuthenticationException;
+import br.com.itpacpalmas.api_sig_lab_itpac.exception.ResourceNotFoundException;
 
 @ControllerAdvice
 @RestController
@@ -21,7 +26,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 				new ExceptionResponse(
 						new Date(),
 						ex.getMessage(),
-						request.getDescription(true));
+						request.getDescription(false));
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
@@ -31,10 +36,18 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 				new ExceptionResponse(
 						new Date(),
 						ex.getMessage(),
-						request.getDescription(true));
+						request.getDescription(false));
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}
 	
-	
+	@ExceptionHandler(InvalidJwtAuthenticationException.class)
+	public final ResponseEntity<ExceptionResponse> invalidJwtAuthenticationException(Exception ex, WebRequest request) {
+		ExceptionResponse exceptionResponse = 
+				new ExceptionResponse(
+						new Date(),
+						ex.getMessage(),
+						request.getDescription(false));
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.UNAUTHORIZED);
+	}
 
 }

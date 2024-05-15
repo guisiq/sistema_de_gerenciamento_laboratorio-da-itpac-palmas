@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.com.itpacpalmas.api_sig_lab_itpac.services.DisciplinaService;
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.Disciplina;
 import br.com.itpacpalmas.api_sig_lab_itpac.repository.DisciplinaRepository;
-import br.com.itpacpalmas.api_sig_lab_itpac.services.DisciplinaService;
 @CrossOrigin
 @RestController
 @RequestMapping(value = "api/disciplina")
